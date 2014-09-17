@@ -31,6 +31,7 @@
   cstrahan = "Charles Strahan <charles.c.strahan@gmail.com>";
   edwtjo = "Edward Tjörnhammar <ed@cflags.cc>";
   eelco = "Eelco Dolstra <eelco.dolstra@logicblox.com>";
+  ellis = "Ellis Whitehead <nixos@ellisw.net>";
   emery = "Emery Hemingawy <emery@vfemail.net>";
   ertes = "Ertugrul Söylemez <ertesx@gmx.de>";
   falsifian = "James Cook <james.cook@utoronto.ca>";
