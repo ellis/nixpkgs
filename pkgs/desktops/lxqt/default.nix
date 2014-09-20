@@ -17,6 +17,10 @@ lxqt_self = rec { # the lines are very long but it seems better than the even-od
   libqtxdg = callPackage ./base/libqtxdg.nix { };
   liblxqt = callPackage ./base/liblxqt.nix { };
   liblxqt-mount = callPackage ./base/liblxqt-mount.nix { };
+  lxqt-globalkeys = callPackage ./base/lxqt-globalkeys.nix { };
+  lxqt-notificationd = callPackage ./base/lxqt-notificationd.nix { };
+  libsysstat = callPackage ./base/libsysstat.nix { };
+  menu-cache = callPackage ./base/menu-cache.nix { };
 }; # lxqt_self
 
 in lxqt_self

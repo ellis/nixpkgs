@@ -4,24 +4,25 @@
 
 # lxqt dependencies
 , libqtxdg
+, liblxqt
 }:
 
 stdenv.mkDerivation rec {
-  basename = "liblxqt";
+  basename = "lxqt-notificationd";
   version = "0.7.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "948bc69d2e574bf0243bb79d84f366426e833ecc";
-    sha256 = "53f206078da0eec56f1b5505c7e1ec33ba2bd71015d5aea58b7429678f1d25c6";
+    rev = "4980c4ab7d0a3cbd67b0a065fab30f8f16a71da1";
+    sha256 = "6d914e89f156767911ffa8432e21471491dea94cc185d26331ff4f0de992ca00";
   };
 
-  buildInputs = [ stdenv cmake qt48Full libqtxdg ];
+  buildInputs = [ stdenv cmake qt48Full libqtxdg liblxqt ];
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "Common base library for most lxde-qt components";
+    description = "Notification daemon and library";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];

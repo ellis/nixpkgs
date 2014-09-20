@@ -1,4 +1,4 @@
-{ stdenv, fetchgit, pkgconfig
+{ stdenv, fetchgit
 , cmake
 , qt48Full
 
@@ -18,4 +18,12 @@ stdenv.mkDerivation rec {
   };
 
   buildInputs = [ stdenv cmake qt48Full liblxqt ];
+
+  meta = {
+    homepage = "http://www.lxqt.org";
+    description = "Library used to manage removable devices";
+    license = stdenv.lib.licenses.lgpl21;
+    platforms = stdenv.lib.platforms.linux;
+    maintainers = [ stdenv.lib.maintainers.ellis ];
+  };
 }

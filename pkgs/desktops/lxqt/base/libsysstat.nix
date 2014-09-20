@@ -1,27 +1,24 @@
 { stdenv, fetchgit
 , cmake
 , qt48Full
-
-# lxqt dependencies
-, libqtxdg
 }:
 
 stdenv.mkDerivation rec {
-  basename = "liblxqt";
-  version = "0.7.0";
+  basename = "libsysstat";
+  version = "0.1.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "948bc69d2e574bf0243bb79d84f366426e833ecc";
-    sha256 = "53f206078da0eec56f1b5505c7e1ec33ba2bd71015d5aea58b7429678f1d25c6";
+    rev = "574dee2d9c6b6f13caa14089bbbe13a9bfa6555e";
+    sha256 = "df2cfd4de1661b9dc0c76475609ff1e07d84eb412711ab08e5c1a8e5db7669b4";
   };
 
-  buildInputs = [ stdenv cmake qt48Full libqtxdg ];
+  buildInputs = [ stdenv cmake qt48Full ];
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "Common base library for most lxde-qt components";
+    description = "Library used to query system statistics (net status, system resource usage, ...etc)";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];

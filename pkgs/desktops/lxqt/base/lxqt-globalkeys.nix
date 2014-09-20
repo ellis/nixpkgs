@@ -3,25 +3,25 @@
 , qt48Full
 
 # lxqt dependencies
-, libqtxdg
+, liblxqt
 }:
 
 stdenv.mkDerivation rec {
-  basename = "liblxqt";
+  basename = "lxqt-globalkeys";
   version = "0.7.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "948bc69d2e574bf0243bb79d84f366426e833ecc";
-    sha256 = "53f206078da0eec56f1b5505c7e1ec33ba2bd71015d5aea58b7429678f1d25c6";
+    rev = "5ceb74d79140fa487535cee17854db2aba99bdb4";
+    sha256 = "58af2329f4d01cbe7fdb55fbd13fdadd4db99fa616f34ea1c0bb5316e14791eb";
   };
 
-  buildInputs = [ stdenv cmake qt48Full libqtxdg ];
+  buildInputs = [ stdenv cmake qt48Full liblxqt ];
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "Common base library for most lxde-qt components";
+    description = "Daemon and library for global keyboard shortcuts registration";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];
