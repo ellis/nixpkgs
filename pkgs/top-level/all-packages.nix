@@ -10232,6 +10232,7 @@ let
   xfce = xfce4_10;
   xfce4_10 = recurseIntoAttrs (import ../desktops/xfce { inherit pkgs newScope; });
 
+  lxqt = recurseIntoAttrs (import ../desktops/lxqt { inherit pkgs newScope; });
 
   ### SCIENCE
 
