@@ -19,6 +19,10 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ stdenv cmake qt48Full liblxqt ];
 
+  #preConfigure = ''cmakeFlags="-DLXQT_ETC_XDG_DIR=$out/etc/xdg"'';
+
+  #preInstall = ''mkdir -p $out/etc/xdg'';
+
   meta = {
     homepage = "http://www.lxqt.org";
     description = "Daemon and library for global keyboard shortcuts registration";

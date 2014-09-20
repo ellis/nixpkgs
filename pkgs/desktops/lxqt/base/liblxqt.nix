@@ -19,6 +19,8 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ stdenv cmake qt48Full libqtxdg ];
 
+  #preConfigure = ''cmakeFlags="-DLXQT_ETC_XDG_DIR=$out/etc/xdg"'';
+
   meta = {
     homepage = "http://www.lxqt.org";
     description = "Common base library for most lxde-qt components";
