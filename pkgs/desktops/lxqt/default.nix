@@ -23,6 +23,8 @@ lxqt_self = rec { # the lines are very long but it seems better than the even-od
   menu-cache = callPackage ./base/menu-cache.nix { };
 
   lxqt-panel = callPackage ./core/lxqt-panel.nix { };
+
+  lxmenu-data = callPackage ./data/lxmenu-data.nix { };
 }; # lxqt_self
 
 in lxqt_self
