@@ -32,13 +32,13 @@ in
       };
 
     environment.systemPackages = [
-      pkgs.haskellPackages.xmonad
+      #pkgs.haskellPackages.xmonad
       #pkgs.lxqt.lxqt-globalkeys
       #pkgs.lxqt.lxqt-notificationd
       pkgs.lxqt.lxqt-panel
       #pkgs.lxqt.lxqt-policykit
       #pkgs.lxqt.lxqt-qtplugin
-      #pkgs.lxqt.lxqt-runner
+      pkgs.lxqt.lxqt-runner
       #pkgs.lxqt.lxqt-session
       #pkgs.lxqt.lxmenu-data
       #pkgs.lxqt.menu-cache
