@@ -29,6 +29,7 @@ lxqt_self = rec { # the lines are very long but it seems better than the even-od
   lxqt-qtplugin = callPackage ./core/lxqt-qtplugin.nix { };
   lxqt-policykit = callPackage ./core/lxqt-policykit.nix { };
 
+  lxqt-common = callPackage ./data/lxqt-common.nix { };
   lxmenu-data = callPackage ./data/lxmenu-data.nix { };
 }; # lxqt_self
 
