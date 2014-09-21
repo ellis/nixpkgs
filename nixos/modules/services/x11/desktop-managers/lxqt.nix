@@ -32,7 +32,7 @@ in
       };
 
     environment.systemPackages = [
-      #pkgs.lxqt.lxqt-globalkeys
+      pkgs.lxqt.lxqt-globalkeys
       pkgs.lxqt.lxqt-notificationd
       pkgs.lxqt.lxqt-panel
       pkgs.lxqt.lxqt-policykit
