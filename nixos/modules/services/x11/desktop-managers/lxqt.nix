@@ -25,7 +25,7 @@ in
       { name = "lxqt";
         start = ''
           test -r "$HOME/.Xmodmap" && xmodmap "$HOME/.Xmodmap"
-          ${pkgs.lxqt.lxqt-panel}/bin/lxqt-panel &
+          exec ${pkgs.lxqt.lxqt-common}/bin/startlxqt
           #exec ${pkgs.haskellPackages.xmonad}/bin/xmonad
           #waitPID=$!
         '';
@@ -39,6 +39,7 @@ in
       pkgs.lxqt.lxqt-qtplugin
       pkgs.lxqt.lxqt-runner
       pkgs.lxqt.lxqt-session
+      pkgs.lxqt.lxqt-common
       pkgs.lxqt.lxmenu-data
       pkgs.lxqt.menu-cache
       pkgs.lxqt.pcmanfm-qt
