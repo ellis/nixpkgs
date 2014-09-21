@@ -24,7 +24,7 @@ in
     services.xserver.desktopManager.session = singleton
       { name = "lxqt";
         start = ''
-          #test -r "$HOME/.Xmodmap" && xmodmap "$HOME/.Xmodmap"
+          test -r "$HOME/.Xmodmap" && xmodmap "$HOME/.Xmodmap"
           ${pkgs.lxqt.lxqt-panel}/bin/lxqt-panel &
           exec ${pkgs.haskellPackages.xmonad}/bin/xmonad
           #waitPID=$!
