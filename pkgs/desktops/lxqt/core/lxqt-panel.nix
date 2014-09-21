@@ -3,7 +3,7 @@
 , qt48Full
 
 , libpthreadstubs
-, libxcb
+, libxcb # Can be removed?
 , libXcomposite
 , libXdmcp
 # lxqt dependencies

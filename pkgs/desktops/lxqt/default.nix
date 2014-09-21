@@ -23,6 +23,11 @@ lxqt_self = rec { # the lines are very long but it seems better than the even-od
   menu-cache = callPackage ./base/menu-cache.nix { };
 
   lxqt-panel = callPackage ./core/lxqt-panel.nix { };
+  pcmanfm-qt = callPackage ./core/pcmanfm-qt.nix { };
+  lxqt-session = callPackage ./core/lxqt-session.nix { };
+  lxqt-runner = callPackage ./core/lxqt-runner.nix { };
+  lxqt-qtplugin = callPackage ./core/lxqt-qtplugin.nix { };
+  lxqt-policykit = callPackage ./core/lxqt-policykit.nix { };
 
   lxmenu-data = callPackage ./data/lxmenu-data.nix { };
 }; # lxqt_self
