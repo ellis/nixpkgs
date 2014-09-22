@@ -28,6 +28,8 @@ lxqt_self = rec { # the lines are very long but it seems better than the even-od
   lxqt-runner = callPackage ./core/lxqt-runner.nix { };
   lxqt-qtplugin = callPackage ./core/lxqt-qtplugin.nix { };
   lxqt-policykit = callPackage ./core/lxqt-policykit.nix { };
+  lxqt-openssh-askpass = callPackage ./core/lxqt-openssh-askpass.nix { };
+  lxqt-powermanagement = callPackage ./core/lxqt-powermanagement.nix { };
 
   lxqt-common = callPackage ./data/lxqt-common.nix { };
   lxmenu-data = callPackage ./data/lxmenu-data.nix { };

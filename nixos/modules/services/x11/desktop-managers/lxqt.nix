@@ -34,6 +34,7 @@ in
     environment.systemPackages = [
       pkgs.lxqt.lxqt-globalkeys
       pkgs.lxqt.lxqt-notificationd
+      pkgs.lxqt.lxqt-openssh-askpass
       pkgs.lxqt.lxqt-panel
       pkgs.lxqt.lxqt-policykit
       pkgs.lxqt.lxqt-qtplugin
