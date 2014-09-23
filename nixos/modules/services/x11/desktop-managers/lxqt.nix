@@ -37,6 +37,7 @@ in
       pkgs.lxqt.lxqt-openssh-askpass
       pkgs.lxqt.lxqt-panel
       pkgs.lxqt.lxqt-policykit
+      pkgs.lxqt.lxqt-powermanagement
       pkgs.lxqt.lxqt-qtplugin
       pkgs.lxqt.lxqt-runner
       pkgs.lxqt.lxqt-session
