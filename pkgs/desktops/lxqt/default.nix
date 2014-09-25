@@ -31,6 +31,7 @@ lxqt_self = rec { # the lines are very long but it seems better than the even-od
   lxqt-openssh-askpass = callPackage ./core/lxqt-openssh-askpass.nix { };
   lxqt-powermanagement = callPackage ./core/lxqt-powermanagement.nix { };
   lximage-qt = callPackage ./core/lximage-qt.nix { };
+  lxqt-config = callPackage ./core/lxqt-config.nix { };
 
   lxqt-common = callPackage ./data/lxqt-common.nix { };
   lxmenu-data = callPackage ./data/lxmenu-data.nix { };

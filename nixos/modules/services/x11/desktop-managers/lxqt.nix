@@ -43,6 +43,7 @@ in
       pkgs.lxqt.lxqt-runner
       pkgs.lxqt.lxqt-session
       pkgs.lxqt.lxqt-common
+      pkgs.lxqt.lxqt-config
       pkgs.lxqt.lxmenu-data
       pkgs.lxqt.menu-cache
       pkgs.lxqt.pcmanfm-qt
