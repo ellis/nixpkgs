@@ -32,6 +32,7 @@ in
       };
 
     environment.systemPackages = [
+      pkgs.lxqt.lximage-qt
       pkgs.lxqt.lxqt-globalkeys
       pkgs.lxqt.lxqt-notificationd
       pkgs.lxqt.lxqt-openssh-askpass
