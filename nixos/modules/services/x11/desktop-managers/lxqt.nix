@@ -25,6 +25,7 @@ in
       { name = "lxqt";
         start = ''
           test -r "$HOME/.Xmodmap" && xmodmap "$HOME/.Xmodmap"
+          echo HUH..... $HOME
           exec ${pkgs.lxqt.lxqt-common}/bin/startlxqt
           #exec ${pkgs.haskellPackages.xmonad}/bin/xmonad
           #waitPID=$!
@@ -32,7 +33,9 @@ in
       };
 
     environment.systemPackages = [
+      pkgs.lxqt.compton-conf
       pkgs.lxqt.lximage-qt
+      pkgs.lxqt.lxqt-about
       pkgs.lxqt.lxqt-globalkeys
       pkgs.lxqt.lxqt-notificationd
       pkgs.lxqt.lxqt-openssh-askpass
