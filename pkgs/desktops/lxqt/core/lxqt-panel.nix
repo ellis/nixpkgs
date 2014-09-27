@@ -42,12 +42,9 @@ stdenv.mkDerivation rec {
     icu alsaLib pulseaudio lm_sensors
   ];
 
-  # This doesn't actually work... see comment below
-  preConfigure = ''cmakeFlags="-DLXQT_ETC_XDG_DIR=$out/etc/xdg"'';
-  # Passing -DLXQT_ETC_XDG_DIR to cmake doesn't work -- for some reason, the value is taken from the build of liblxqt instead.
-  # So here we patch the cmake file that handles installation.
+  # Patch cmake_install.cmake so that it doesn't try to install to /etc/xdg or /run/current-system/sw/etc/xdg
   postConfigure = ''
-    sed -i "s@\"/etc/xdg@\"$out/etc/xdg@" panel/cmake_install.cmake
+    sed -i "s@\"[^ \"]*/etc/xdg@\"$out/etc/xdg@" panel/cmake_install.cmake
   '';
 
   #preInstall = ''mkdir -p ${out}/etx/xdg'';
