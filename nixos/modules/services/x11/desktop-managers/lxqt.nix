@@ -24,11 +24,7 @@ in
     services.xserver.desktopManager.session = singleton
       { name = "lxqt";
         start = ''
-          test -r "$HOME/.Xmodmap" && xmodmap "$HOME/.Xmodmap"
-          echo HUH..... $HOME
           exec ${pkgs.lxqt.lxqt-common}/bin/startlxqt
-          #exec ${pkgs.haskellPackages.xmonad}/bin/xmonad
-          #waitPID=$!
         '';
       };
 
@@ -51,6 +47,10 @@ in
       pkgs.lxqt.menu-cache
       pkgs.lxqt.pcmanfm-qt
     ];
+
+    # Link some extra directories in /run/current-system/software/share
+    environment.pathsToLink =
+      [ "/share/lxqt" "/share/desktop-directories" ];
 
   };
 
