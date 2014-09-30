@@ -1,6 +1,6 @@
 { stdenv, fetchgit, pkgconfig
 , cmake
-, qt48Full
+, qt48
 
 , libpthreadstubs, libXdmcp
 
@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     stdenv pkgconfig
-    cmake qt48Full
+    cmake qt48
     libpthreadstubs libXdmcp
     libqtxdg liblxqt
   ];

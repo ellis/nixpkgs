@@ -1,30 +1,33 @@
 { stdenv, fetchgit, pkgconfig
 , cmake
-, qt48Full
+, qt48
 
-, liblxqt
+, libX11
+, xrandr
+#, libqtxdg
+#, liblxqt
 }:
 
 stdenv.mkDerivation rec {
-  basename = "lxqt-openssh-askpass";
+  basename = "lxqt-config-randr";
   version = "0.7.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "e193f70354922794ae9c09f79e00c5ce60cbd135";
-    sha256 = "166ce92f8f6b1cf7163b08df17e251cd325ea9370e8fe7088cf0bb53b3263e88";
+    rev = "7a8fcd1ff7e15bdc0a8166d299c7eddb165b5c55";
+    sha256 = "3b5591845b56fafa360add998f2e09536691124f6ca182393a637a31e706ad54";
   };
 
   buildInputs = [
     stdenv pkgconfig
-    cmake qt48Full
-    liblxqt
+    cmake qt48
+    libX11 xrandr
   ];
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "Tool used with openssh to prompt the user for password";
+    description = "Simple monitor configuration";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];

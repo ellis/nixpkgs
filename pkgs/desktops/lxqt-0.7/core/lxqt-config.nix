@@ -1,34 +1,35 @@
 { stdenv, fetchgit, pkgconfig
 , cmake
-, qt48Full
+, qt48
 
-, libfm
-, menu-cache
-, libpthreadstubs
-, libXdmcp
+, libqtxdg
+, liblxqt
 }:
 
 stdenv.mkDerivation rec {
-  basename = "pcmanfm-qt";
+  basename = "lxqt-config";
   version = "0.7.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "e20179a751d63ee928a369c06b2d469c3b120b87";
-    sha256 = "720aa7aba5a617b4d627e562d23c5a4b0b1fc4efceb37ae05215c55060f698a7";
+    rev = "b2ce0d1833158eeb6fac7753b2c447cb0a707352";
+    sha256 = "14926060f4b05535ea6c05945d69cbb3af37563fbb4c5a0ac90d053d044e1f35";
   };
 
   buildInputs = [
     stdenv pkgconfig
-    cmake qt48Full
-    libfm menu-cache
-    libpthreadstubs libXdmcp
+    cmake qt48
+    libqtxdg liblxqt
   ];
+
+  patchPhase = ''
+    substituteInPlace src/CMakeLists.txt --replace /etc/xdg $out/etc/xdg
+  '';
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "file manager + desktop manager";
+    description = "System configuration (control center)";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];

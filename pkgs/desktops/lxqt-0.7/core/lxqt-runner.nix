@@ -1,31 +1,32 @@
 { stdenv, fetchgit, pkgconfig
 , cmake
-, qt48Full
+, qt48
 
-#, libqtxdg
+, libqtxdg
 , liblxqt
+, lxqt-globalkeys
 }:
 
 stdenv.mkDerivation rec {
-  basename = "lxqt-about";
+  basename = "lxqt-runner";
   version = "0.7.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "11ec27fd2d0ddce685add5c4db7eceb5bdc39d19";
-    sha256 = "c92030babb0737c0d770e3cb4bfeab86afccf5a3b44a00c9cefc5a37caa3d665";
+    rev = "1f323d9b53868218765620646a6b7903791867c5";
+    sha256 = "190b0ab183a95dbcc126a53997c2e1028f5752d720006ad34ec9b698eb4c68cb";
   };
 
   buildInputs = [
     stdenv pkgconfig
-    cmake qt48Full
-    liblxqt
+    cmake qt48
+    libqtxdg liblxqt lxqt-globalkeys
   ];
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "About dialog for lxde-qt";
+    description = "Launch applications quickly by typing commands";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];

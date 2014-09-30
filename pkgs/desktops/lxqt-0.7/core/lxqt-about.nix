@@ -1,33 +1,31 @@
 { stdenv, fetchgit, pkgconfig
 , cmake
-, qt48Full
+, qt48
 
-, libX11
-, xrandr
 #, libqtxdg
-#, liblxqt
+, liblxqt
 }:
 
 stdenv.mkDerivation rec {
-  basename = "lxqt-config-randr";
+  basename = "lxqt-about";
   version = "0.7.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "7a8fcd1ff7e15bdc0a8166d299c7eddb165b5c55";
-    sha256 = "3b5591845b56fafa360add998f2e09536691124f6ca182393a637a31e706ad54";
+    rev = "11ec27fd2d0ddce685add5c4db7eceb5bdc39d19";
+    sha256 = "c92030babb0737c0d770e3cb4bfeab86afccf5a3b44a00c9cefc5a37caa3d665";
   };
 
   buildInputs = [
     stdenv pkgconfig
-    cmake qt48Full
-    libX11 xrandr
+    cmake qt48
+    liblxqt
   ];
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "Simple monitor configuration";
+    description = "About dialog for lxde-qt";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];

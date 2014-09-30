@@ -1,6 +1,6 @@
 { stdenv, fetchgit
 , cmake
-, qt48Full
+, qt48
 }:
 
 stdenv.mkDerivation rec {
@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
     sha256 = "df2cfd4de1661b9dc0c76475609ff1e07d84eb412711ab08e5c1a8e5db7669b4";
   };
 
-  buildInputs = [ stdenv cmake qt48Full ];
+  buildInputs = [ stdenv cmake qt48 ];
 
   meta = {
     homepage = "http://www.lxqt.org";

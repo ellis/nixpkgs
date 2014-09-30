@@ -1,28 +1,25 @@
 { stdenv, fetchgit
 , cmake
-, qt48Full
-
-# lxqt dependencies
-, libqtxdg
-, liblxqt
+, file # libmagic.so
+, qt48
 }:
 
 stdenv.mkDerivation rec {
-  basename = "lxqt-notificationd";
-  version = "0.7.0";
+  basename = "libqtxdg";
+  version = "0.5.3";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "4980c4ab7d0a3cbd67b0a065fab30f8f16a71da1";
-    sha256 = "6d914e89f156767911ffa8432e21471491dea94cc185d26331ff4f0de992ca00";
+    rev = "8199feb8b8484147eff2ea622f0a6169208766ea";
+    sha256 = "4291e837d072b7c2b7737b6ef897bb85e38d5d1102ad1a6c195ca71245f21490";
   };
 
-  buildInputs = [ stdenv cmake qt48Full libqtxdg liblxqt ];
+  buildInputs = [ stdenv cmake qt48 file ];
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "Notification daemon and library";
+    description = "Library providing freedesktop.org specs implementations for Qt";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];

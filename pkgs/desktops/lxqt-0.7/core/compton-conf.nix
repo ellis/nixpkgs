@@ -1,32 +1,30 @@
 { stdenv, fetchgit, pkgconfig
 , cmake
-, qt48Full
+, qt48
 
-, liblxqt
+, libconfig
 }:
 
 stdenv.mkDerivation rec {
-  basename = "lxqt-qtplugin";
-  version = "0.7.0";
+  basename = "compton-conf";
+  version = "0.1.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "f1bcaeb9ecfdf179d104441159f25da8eed16415";
-    sha256 = "ece1ee19cbc666774bd90cf4ba035d2720677f66252ae5349fcd73c6c4d11f6e";
+    rev = "3e095cd927a8e2fa6b4b7fb1fab1efbb7a051415";
+    sha256 = "a725a4f92e05c374ccbc0e5fe78926fbcb4179a62272111946d6278bf354a6c8";
   };
 
   buildInputs = [
     stdenv pkgconfig
-    cmake qt48Full
-    liblxqt
+    cmake qt48
+    libconfig
   ];
-
-  preConfigure = ''cmakeFlags="-DQT_PLUGINS_DIR=$out/lib/qt4/plugins"'';
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "LxQt platform integration plugin for Qt 4 (let all Qt programs apply LxQt settings)";
+    description = "X composite manager configuration (for compton)";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];

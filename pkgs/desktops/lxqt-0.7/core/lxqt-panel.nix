@@ -1,6 +1,6 @@
 { stdenv, fetchgit, pkgconfig
 , cmake
-, qt48Full
+, qt48
 
 , libpthreadstubs
 , libxcb # Can be removed?
@@ -35,7 +35,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     stdenv pkgconfig
-    cmake qt48Full
+    cmake qt48
     libpthreadstubs libxcb libXcomposite libXdmcp
     libqtxdg liblxqt liblxqt-mount lxqt-globalkeys libsysstat
     menu-cache

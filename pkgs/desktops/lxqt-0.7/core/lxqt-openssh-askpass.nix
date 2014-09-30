@@ -1,30 +1,30 @@
 { stdenv, fetchgit, pkgconfig
 , cmake
-, qt48Full
+, qt48
 
-, libconfig
+, liblxqt
 }:
 
 stdenv.mkDerivation rec {
-  basename = "compton-conf";
-  version = "0.1.0";
+  basename = "lxqt-openssh-askpass";
+  version = "0.7.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "3e095cd927a8e2fa6b4b7fb1fab1efbb7a051415";
-    sha256 = "a725a4f92e05c374ccbc0e5fe78926fbcb4179a62272111946d6278bf354a6c8";
+    rev = "e193f70354922794ae9c09f79e00c5ce60cbd135";
+    sha256 = "166ce92f8f6b1cf7163b08df17e251cd325ea9370e8fe7088cf0bb53b3263e88";
   };
 
   buildInputs = [
     stdenv pkgconfig
-    cmake qt48Full
-    libconfig
+    cmake qt48
+    liblxqt
   ];
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "X composite manager configuration (for compton)";
+    description = "Tool used with openssh to prompt the user for password";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];

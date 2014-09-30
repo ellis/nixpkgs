@@ -1,32 +1,28 @@
-{ stdenv, fetchgit, pkgconfig
+{ stdenv, fetchgit
 , cmake
-, qt48Full
+, qt48
 
+# lxqt dependencies
 , libqtxdg
 , liblxqt
-, lxqt-globalkeys
 }:
 
 stdenv.mkDerivation rec {
-  basename = "lxqt-runner";
+  basename = "lxqt-notificationd";
   version = "0.7.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "1f323d9b53868218765620646a6b7903791867c5";
-    sha256 = "190b0ab183a95dbcc126a53997c2e1028f5752d720006ad34ec9b698eb4c68cb";
+    rev = "4980c4ab7d0a3cbd67b0a065fab30f8f16a71da1";
+    sha256 = "6d914e89f156767911ffa8432e21471491dea94cc185d26331ff4f0de992ca00";
   };
 
-  buildInputs = [
-    stdenv pkgconfig
-    cmake qt48Full
-    libqtxdg liblxqt lxqt-globalkeys
-  ];
+  buildInputs = [ stdenv cmake qt48 libqtxdg liblxqt ];
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "Launch applications quickly by typing commands";
+    description = "Notification daemon and library";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];

@@ -1,27 +1,31 @@
 { stdenv, fetchgit
 , cmake
-, qt48Full
+, qt48
 
 # lxqt dependencies
 , liblxqt
 }:
 
 stdenv.mkDerivation rec {
-  basename = "liblxqt-mount";
+  basename = "lxqt-globalkeys";
   version = "0.7.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "8f6d850989e7e7380a2a61ca72e9df148f43e738";
-    sha256 = "a0d27a41b84f1805a84fd97d38ab8bf66e4794fecbb467197a69771d9c1e6c01";
+    rev = "5ceb74d79140fa487535cee17854db2aba99bdb4";
+    sha256 = "58af2329f4d01cbe7fdb55fbd13fdadd4db99fa616f34ea1c0bb5316e14791eb";
   };
 
-  buildInputs = [ stdenv cmake qt48Full liblxqt ];
+  buildInputs = [ stdenv cmake qt48 liblxqt ];
+
+  #preConfigure = ''cmakeFlags="-DLXQT_ETC_XDG_DIR=$out/etc/xdg"'';
+
+  #preInstall = ''mkdir -p $out/etc/xdg'';
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "Library used to manage removable devices";
+    description = "Daemon and library for global keyboard shortcuts registration";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];

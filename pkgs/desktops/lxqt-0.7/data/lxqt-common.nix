@@ -1,6 +1,6 @@
 { stdenv, fetchgit
 , cmake
-, qt48Full
+, qt48
 }:
 
 stdenv.mkDerivation rec {
@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
     sha256 = "4de5ffaf8261c6072068b562ab5bc9c1fbefbf10c52292d62de97521c1e46f21";
   };
 
-  buildInputs = [ stdenv cmake qt48Full ];
+  buildInputs = [ stdenv cmake qt48 ];
 
   # Delete the lines which pull in liblxqt, since CMake will try to install into the liblxqt paths.
   # Also, the xsession files should be installed to $out/usr rather than /usr/share

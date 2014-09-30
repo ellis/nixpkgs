@@ -1,29 +1,27 @@
 { stdenv, fetchgit
 , cmake
-, qt48Full
+, qt48
 
 # lxqt dependencies
-, libqtxdg
+, liblxqt
 }:
 
 stdenv.mkDerivation rec {
-  basename = "liblxqt";
+  basename = "liblxqt-mount";
   version = "0.7.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "948bc69d2e574bf0243bb79d84f366426e833ecc";
-    sha256 = "53f206078da0eec56f1b5505c7e1ec33ba2bd71015d5aea58b7429678f1d25c6";
+    rev = "8f6d850989e7e7380a2a61ca72e9df148f43e738";
+    sha256 = "a0d27a41b84f1805a84fd97d38ab8bf66e4794fecbb467197a69771d9c1e6c01";
   };
 
-  buildInputs = [ stdenv cmake qt48Full libqtxdg ];
-
-  #preConfigure = ''cmakeFlags="-DLXQT_ETC_XDG_DIR=$out/etc/xdg"'';
+  buildInputs = [ stdenv cmake qt48 liblxqt ];
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "Common base library for most lxde-qt components";
+    description = "Library used to manage removable devices";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];

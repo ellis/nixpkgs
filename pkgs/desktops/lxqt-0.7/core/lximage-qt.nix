@@ -1,31 +1,36 @@
 { stdenv, fetchgit, pkgconfig
 , cmake
-, qt48Full
+, qt48
 
-, libqtxdg
-, liblxqt
+, libexif
+, libfm
+, libpthreadstubs
+, libXdmcp
+
+, pcmanfm-qt
 }:
 
 stdenv.mkDerivation rec {
-  basename = "lxqt-session";
-  version = "0.7.0";
+  basename = "lximage-qt";
+  version = "0.2.0";
   name = "${basename}-${version}";
 
   src = fetchgit {
     url = "https://github.com/lxde/${basename}.git";
-    rev = "1de464107a9dedb46f7424e8fd35d5e774327314";
-    sha256 = "dc7d34081bd833eb5578cdffe98de0f1aececf5641d141854d42c6bad7132af9";
+    rev = "17669ee2195d145343f4a5ee0f431a2c3067ce08";
+    sha256 = "b56d69bda51ae90f435eeb59ec1bc9bae07c55691928ca54ed1c4c9064e60e3e";
   };
 
   buildInputs = [
     stdenv pkgconfig
-    cmake qt48Full
-    libqtxdg liblxqt
+    cmake qt48
+	libexif libfm libpthreadstubs libXdmcp
+	pcmanfm-qt
   ];
 
   meta = {
     homepage = "http://www.lxqt.org";
-    description = "session manager";
+    description = "Image viewer";
     license = stdenv.lib.licenses.lgpl21;
     platforms = stdenv.lib.platforms.linux;
     maintainers = [ stdenv.lib.maintainers.ellis ];
