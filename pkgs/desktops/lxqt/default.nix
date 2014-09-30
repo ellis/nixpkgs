@@ -32,6 +32,7 @@ lxqt_self = rec { # the lines are very long but it seems better than the even-od
   lxqt-powermanagement = callPackage ./core/lxqt-powermanagement.nix { };
   lximage-qt = callPackage ./core/lximage-qt.nix { };
   lxqt-config = callPackage ./core/lxqt-config.nix { };
+  lxqt-config-randr = callPackage ./core/lxqt-config-randr.nix { };
   # ...
   compton-conf = callPackage ./core/compton-conf.nix { };
   lxqt-about = callPackage ./core/lxqt-about.nix { };
